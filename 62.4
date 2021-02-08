@@ -1,0 +1,52 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+const int SIZE = 1000;
+
+
+void zadanie()
+{
+	int tab[SIZE];
+	
+	int ile6 = 0;
+	int ile8 = 0;
+	
+	fstream plik1("c:\\liczby2.txt");
+	
+	for (int i=0; i<SIZE; i++)
+	{
+		plik1>>oct>>tab[i];
+	}
+	
+	int zczyt;
+	
+	for(int i=0; i<SIZE; i++)
+	{
+		zczyt = tab[i];
+		while(zczyt>0)
+		{
+			if (zczyt %10 == 6) 
+			{
+              ile6++;
+            }
+     	  zczyt/=10;
+		}
+		
+		zczyt = tab[i];
+		while(zczyt>0)
+		{
+			if(zczyt%8 == 6)
+			{
+				ile8++;
+			}
+			zczyt/=8;
+		}
+	}
+	cout <<"Ile 6: "<< ile6<<"\n";
+	cout <<"Ile 8: "<< ile8<<"\n";
+}
+
+int main(int argc, char** argv) {
+	zadanie();
+	return 0;
+}
